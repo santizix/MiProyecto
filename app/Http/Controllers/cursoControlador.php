@@ -50,20 +50,24 @@ class cursoControlador extends Controller
         if($request->hasFile('imagen')){
         $cursito->imagen = $request->file('imagen')->store('public');
         }
-        
+
         $cursito->save();
         return 'waw lograste guardar';
     }
 
     /**
-     * Display the specified resource.
+     * muestra el recurso especificado (un registro es un recurso)
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        //
+        //creo un array con informacion del registro del id que viaja en la solicitud
+        $cursito = curso::find($id);
+        //asocio el array a la vista usando compact
+        return view('cursos.show',compact('cursito'));
+        //return $cursito;
     }
 
     /**
