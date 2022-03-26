@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\storeCursosRequest;
 use App\Models\curso;
 use Illuminate\Http\Request;
 
@@ -36,8 +37,17 @@ class cursoControlador extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {   //con el metodo all veo toda la informacion
+    public function store(storeCursosRequest $request)
+    {
+        /*
+        //implementamos validaciones
+        $validacionDatos = $request->validate([
+            'nombre'=>'required|max:10',
+            'imagen'=>'required|imagen'
+        ]);
+        */
+
+        //con el metodo all veo toda la informacion
         //return $request->all();
         //obtuvimos el dato de lo que el usuario envia por el input
         //return $request->input('nombre');
